@@ -20,9 +20,9 @@ fetch('https://corsproxy.io/?https://onlinewinxclub.com/centro-web/admin/lucas/a
             let sucessoTexto = '-';
             if (evento.tipo === 'acesso') {
                 if (evento.sucesso === "1") {
-                    sucessoTexto = `<span style="color:green;font-weight:bold;">permitido</span>`;
+                    sucessoTexto = `<span style="color:green;font-weight:bold;">PERMTIDO</span>`;
                 } else if (evento.sucesso === "0") {
-                    sucessoTexto = `<span style="color:red;font-weight:bold;">negado</span>`;
+                    sucessoTexto = `<span style="color:red;font-weight:bold;">NEGADO</span>`;
                 }
             } else {
                 sucessoTexto = '-';
@@ -30,7 +30,13 @@ fetch('https://corsproxy.io/?https://onlinewinxclub.com/centro-web/admin/lucas/a
             tabela += `
                 <tr>
                     <td>${evento.id}</td>
-                    <td>${evento.tipo}</td>
+                    <td>
+                    ${evento.tipo === "acesso"
+                        ? `<span style="font-weight: 700;">ACESSO <ion-icon name="finger-print-outline"></ion-icon></span>`
+                        : evento.tipo === "alarme"
+                        ? `<span style="color:red;">ALARME <ion-icon name="alert-circle-outline"></ion-icon></span>`
+                        : evento.tipo}
+                    </td>
                     <td>${sucessoTexto}</td>
                     <td>${evento.data_hora}</td>
                 </tr>

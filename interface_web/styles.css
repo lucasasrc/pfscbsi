@@ -22,6 +22,8 @@ th, td {
     text-align: left;
 
     color: #222;
+
+    font-weight: 700;
 }
 th {
     background: #444;
@@ -29,4 +31,8 @@ th {
 }
 tr:nth-child(even) {
     background: #f2f2f2;
+}
+td span{
+    display: flex;
+    align-items: center;
 }
